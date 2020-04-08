@@ -1,7 +1,7 @@
 const covid19ImpactEstimator = (data) => {
-  const { timeToElapse, periodType } = data;
-  const currentlyInfected1 = 1;
-  const currentlyInfected2 = 1;
+  const { periodType, timeToElapse, reportedCases } = data;
+  const currentlyInfected1 = reportedCases * 10;
+  const currentlyInfected2 = reportedCases * 50;
   let multiplier;
   if (periodType === 'weeks') {
     multiplier = timeToElapse * 7;
