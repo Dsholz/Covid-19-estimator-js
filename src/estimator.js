@@ -8,6 +8,8 @@ const covid19ImpactEstimator = (data) => {
   const currentlyInfected1 = reportedCases * 10;
   const currentlyInfected2 = reportedCases * 50;
   let multiplier;
+  // Manage the periodType and depends whether it has values of
+  // either days weeks or months, then makes appropriate conversion to days.
   if (periodType === 'months') {
     multiplier = timeToElapse * 30;
   } else if (periodType === 'weeks') {
