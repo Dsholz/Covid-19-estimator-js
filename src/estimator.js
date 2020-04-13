@@ -9,16 +9,18 @@ const covid19ImpactEstimator = (data) => {
   const { avgDailyIncomePopulation, avgDailyIncomeInUSD } = region;
   const currentlyInfected1 = reportedCases * 10;
   const currentlyInfected2 = reportedCases * 50;
-  let multiplier;
+  let infectedPeriod;
+
   if (periodType === 'months') {
-    multiplier = timeToElapse * 30;
+    infectedPeriod = timeToElapse * 30;
   } else if (periodType === 'weeks') {
-    multiplier = timeToElapse * 7;
+    infectedPeriod = timeToElapse * 7;
   } else if (periodType === 'days') {
-    multiplier = timeToElapse;
+    infectedPeriod = timeToElapse;
   }
-  const impactInfections = currentlyInfected1 * (2 ** (Math.round(multiplier / 3)));
-  const severeImpactInfections = currentlyInfected2 * (2 ** (Math.round(multiplier / 3)));
+
+  const impactInfections = currentlyInfected1 * (2 ** Math.trunc(infectedPeriod / 3));
+  const severeImpactInfections = currentlyInfected2 * (2 ** Math.trunc(infectedPeriod / 3));
 
   const impactICUCases = 0.05 * impactInfections;
   const severeImpactICUCases = 0.05 * severeImpactInfections;
@@ -29,10 +31,10 @@ const covid19ImpactEstimator = (data) => {
   const impactSevereCases = 0.15 * impactInfections;
   const severeImpactSevereCases = 0.15 * severeImpactInfections;
 
-  const impactEconomicLoss = (impactInfections * avgDailyIncomePopulation)
-    * avgDailyIncomeInUSD * multiplier;
-  const severeImpactEconomicLoss = (severeImpactInfections * avgDailyIncomePopulation)
-    * avgDailyIncomeInUSD * multiplier;
+  const impactEconomicLoss = Math.trunc((impactInfections * avgDailyIncomePopulation
+    * avgDailyIncomeInUSD) * infectedPeriod);
+  const severeImpactEconomicLoss = Math.trunc((severeImpactInfections * avgDailyIncomePopulation
+    * avgDailyIncomeInUSD) * infectedPeriod);
 
   const availableHospitalBeds = 0.35 * totalHospitalBeds;
   return {
