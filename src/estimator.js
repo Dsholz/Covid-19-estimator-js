@@ -36,7 +36,7 @@ const covid19ImpactEstimator = (data) => {
   const severeImpactEconomicLoss = Math.trunc((severeImpactInfections * avgDailyIncomePopulation
     * avgDailyIncomeInUSD) * infectedPeriod);
 
-  const availableHospitalBeds = 0.35 * totalHospitalBeds;
+  const availableHospitalBeds = Math.trunc(0.35 * totalHospitalBeds);
   return {
     data,
     impact: {
