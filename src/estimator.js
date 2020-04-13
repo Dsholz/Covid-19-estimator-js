@@ -36,14 +36,14 @@ const covid19ImpactEstimator = (data) => {
   const severeImpactEconomicLoss = Math.trunc((severeImpactInfections * avgDailyIncomePopulation
     * avgDailyIncomeInUSD) * infectedPeriod);
 
-  const availableHospitalBeds = Math.trunc(0.35 * totalHospitalBeds);
+  const availableHospitalBeds = 0.35 * totalHospitalBeds;
   return {
     data,
     impact: {
       currentlyInfected: currentlyInfected1,
       infectionsByRequestedTime: impactInfections,
       severeCasesByRequestedTime: impactSevereCases,
-      hospitalBedsByRequestedTime: availableHospitalBeds - impactSevereCases,
+      hospitalBedsByRequestedTime: Math.trunc(availableHospitalBeds - impactSevereCases),
       casesForICUByRequestedTime: impactICUCases,
       casesForVentilatorsByRequestedTime: impactVentilatorCases,
       dollarsInFlight: impactEconomicLoss
@@ -52,7 +52,7 @@ const covid19ImpactEstimator = (data) => {
       currentlyInfected: currentlyInfected2,
       infectionsByRequestedTime: severeImpactInfections,
       severeCasesByRequestedTime: severeImpactSevereCases,
-      hospitalBedsByRequestedTime: availableHospitalBeds - severeImpactSevereCases,
+      hospitalBedsByRequestedTime: Math.trunc(availableHospitalBeds - severeImpactSevereCases),
       casesForICUByRequestedTime: severeImpactICUCases,
       casesForVentilatorsByRequestedTime: severeImpactVentilatorCases,
       dollarsInFlight: severeImpactEconomicLoss
