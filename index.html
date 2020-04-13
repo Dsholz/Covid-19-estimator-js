@@ -19,7 +19,13 @@
     <h1>COVID-19 infections estimator</h1>
   </div>
 
-  <form class="details" id="form">
+  <form class="details" id="form" onsubmit="covid19ImpactEstimator({
+    population: document.querySelector('[data-population]').value,
+    timeToElapse: document.querySelector('[data-time-to-elapse]').value,
+    reportedCases: document.querySelector('[data-reported-cases]').value,
+    totalHospitalBeds: document.querySelector('[data-total-hospital-beds]').value,
+    periodType: document.querySelector('[data-period-type]').value
+  });">
 
     <input type="number" name="population" placeholder="Enter Region Population" data-population>
     <input type="number" name="timeToElapse" placeholder="Enter Projected Period" data-time-to-elapse>
@@ -36,9 +42,6 @@
     <button class="test" data-go-estimate>Submit Estimate</button>
   </form>
 
-  <script>
-    console.log(document.querySelector('[data-period-type]').value);
-  </script>
 </body>
 
 </html>

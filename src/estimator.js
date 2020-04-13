@@ -60,15 +60,4 @@ const covid19ImpactEstimator = (data) => {
   };
 };
 
-document.querySelector('#form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  covid19ImpactEstimator({
-    population: e.target.elements[0].value,
-    timeToElapse: e.target.elements[1].value,
-    reportedCases: e.target.elements[2].value,
-    totalHospitalBeds: e.target.elements[3].value,
-    periodType: e.target.elements[4].value
-  });
-});
-
 export default covid19ImpactEstimator;
