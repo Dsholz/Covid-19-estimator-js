@@ -22,11 +22,11 @@ const covid19ImpactEstimator = (data) => {
   const impactInfections = currentlyInfected1 * (2 ** Math.trunc(infectedPeriod / 3));
   const severeImpactInfections = currentlyInfected2 * (2 ** Math.trunc(infectedPeriod / 3));
 
-  const impactICUCases = 0.05 * impactInfections;
-  const severeImpactICUCases = 0.05 * severeImpactInfections;
+  const impactICUCases = Math.trunc(0.05 * impactInfections);
+  const severeImpactICUCases = Math.trunc(0.05 * severeImpactInfections);
 
-  const impactVentilatorCases = 0.02 * impactInfections;
-  const severeImpactVentilatorCases = 0.02 * severeImpactInfections;
+  const impactVentilatorCases = Math.trunc(0.02 * impactInfections);
+  const severeImpactVentilatorCases = Math.trunc(0.02 * severeImpactInfections);
 
   const impactSevereCases = 0.15 * impactInfections;
   const severeImpactSevereCases = 0.15 * severeImpactInfections;
