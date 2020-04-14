@@ -70,3 +70,7 @@ input[type="number"]:focus {
   text-transform: uppercase;
   height: 2rem;
 }
+
+label {
+  font-size: 1.2rem;
+}

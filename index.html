@@ -10,14 +10,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <title>COVID-19 Infections Estimator</title>
-  <script src="/src/estimator.js"></script>
 </head>
 
 <body>
 
-  <div class="header">
+  <header class="header">
     <h1>COVID-19 infections estimator</h1>
-  </div>
+  </header>
 
   <form class="details" id="form" onsubmit="covid19ImpactEstimator({
     population: document.querySelector('[data-population]').value,
@@ -27,12 +26,19 @@
     periodType: document.querySelector('[data-period-type]').value
   });">
 
+    <label for="population">Region Population:</label>
     <input type="number" name="population" placeholder="Enter Region Population" data-population>
+
+    <label for="timeToElapse">Projected Period:</label>
     <input type="number" name="timeToElapse" placeholder="Enter Projected Period" data-time-to-elapse>
+
+    <label for="reportedCases">Number of Cases:</label>
     <input type="number" name="reportedCases" placeholder="Enter Number of Cases" data-reported-cases>
+
+    <label for="totalHospitalBeds">Amout of Available Hospital Beds:</label>
     <input type="number" name="totalHospitalBeds" placeholder="Enter Amt of Hospital Beds" data-total-hospital-beds>
 
-    <h2>Choose Preferred Period Type:</h2>
+    <label for="periodType">Choose Preferred Period Type:</label>
     <select name="periodType" data-period-type>
       <option value="days" selected>Days</option>
       <option value="weeks">Weeks</option>
