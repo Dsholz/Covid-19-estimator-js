@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="A COVID-19 infections estimator which projects
+                                    number of infected people within a particular
+                                    period with respect to the number of currently
+                                    persons.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>COVID-19 Infections Estimator</title>
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>COVID-19 infections estimator</h1>
+  </header>
+
+  <form class="details" id="form" onsubmit="covid19ImpactEstimator({
+    population: document.querySelector('[data-population]').value,
+    timeToElapse: document.querySelector('[data-time-to-elapse]').value,
+    reportedCases: document.querySelector('[data-reported-cases]').value,
+    totalHospitalBeds: document.querySelector('[data-total-hospital-beds]').value,
+    periodType: document.querySelector('[data-period-type]').value
+  });">
+
+    <label for="population">Region Population:</label>
+    <input type="number" id="population" name="population" placeholder="Enter Region Population" data-population>
+
+    <label for="timeToElapse">Projected Period:</label>
+    <input type="number" id="timeToElapse" name="timeToElapse" placeholder="Enter Projected Period" data-time-to-elapse>
+
+    <label for="reportedCases">Number of Cases:</label>
+    <input type="number" id="reportedCases" name="reportedCases" placeholder="Enter Number of Cases"
+      data-reported-cases>
+
+    <label for="totalHospitalBeds">Amout of Available Hospital Beds:</label>
+    <input type="number" id="totalHospitalBeds" name="totalHospitalBeds" placeholder="Enter Amt of Hospital Beds"
+      data-total-hospital-beds>
+
+    <label for="periodType">Choose Preferred Period Type:</label>
+    <select id="periodType" name="periodType" data-period-type>
+      <option value="days" selected>Days</option>
+      <option value="weeks">Weeks</option>
+      <option value="months">Months</option>
+    </select>
+
+    <button class="test" data-go-estimate>Submit Estimate</button>
+  </form>
+
+</body>
+
+</html>
