@@ -1,17 +1,32 @@
-# #BuildForSDG Cohort-1 JavaScript Assessment
+# Covid-19 Infections Estimator
 
-> Build an overly simplified COVID-19 infection impact estimator
+Covid-19 Infections Estimator is an application that predicts the amount of Covid Infections within a particular period given particular datasets: **Region Population**, **Projected Period**, **Number of Cases**, **Amout of Available Hospital Beds**.
 
-This is an eligibility assessment for the 2020 [#BuildforSDG](https://buildforsdg.andela.com/) program
+## Installation
 
-The assessment empowers me to **attempt** helping society and leaders prepare for the **real big problem** of COVID-19, which is **its impact on lives, health systems, supply chains, and the economy**: 
-> 1.  Too many patients, not enough hospitals and beds. A serious shortage of ventilators, masks and other PPE - if *we don’t practice social distancing*.
-> 2.  Job losses or freezes, low cash flow and low production (even for essentials like food). These and more from too many people being sick, a sizable number dying (including some of the best people in many fields), and many others affected by the impact of losing loved ones or a world operating in slow motion
+To get the application up and running on your computer just follow in order these installation instructions.
 
-## How To Proceed
+- Open the command line and navigate to your apps root folder. Then run:
+- `npm Install` This creates a node_modules folder and installs all the dependencies that will be nedded to run this application locally on your machine.
+- `npm run app` This creates a server which you can use to run the application, After this it usually creates one on the port http://localhost:8080/ or any available port.
 
-### Project Setup & Submission Process
+### Example
+```
+$ npm install
+$ npm run app
+i ｢wds｣: Project is running at http://localhost:8080/
+i ｢wds｣: webpack output is served from /scripts/
+i ｢wds｣: Content not from webpack is served from C:\Users\User\Desktop\Projects\app\public
+```
 
-> Go to [this Google Drive](https://drive.google.com/drive/u/0/folders/132af5VHpYX5LDTzqQETThXpDpw6Q6jRv) for guides on [how to setup your project](https://drive.google.com/file/d/1izTv3RdKwJf2V0RsarRc2ULDemKEAC16/view), take the assessment in one of the supported programming languages (Javascript, Python, or PHP), and how to submit your work. Make sure you read the instructions carefully, because missing a step might cost you in the long run.
----
+## Usage
+Covid-19 Estimator runs on the browser, it is a single page application. All that is required to get Infections prediction is to fill in the inputs where neccessary. You can use this application here [Covid-19 Estimator](https://covid19impactestimatorbydaniel.netlify.app/). Or follow the installation instructions above to run it locally on your computer.
 
+## Tools
+Tacky Notes is bult mainly with JavaScript and also.
+
+> `babel` - Bundles all javascript assests for usability on different plattforms.
+> `live-server` - This is used to create a local server where the application can be used on your computer.
+
+## License
+Tacky Notes Application is created by Daniel Soladoye. © Dsholz 2020 All Rights Reservered.
